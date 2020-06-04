@@ -7,15 +7,15 @@ const withOpacity = function(step, frames) {
 
             componentDidMount() {
                 this.id = setInterval(() => {
-                    const { opacity } = this.state;
-                    const nextOpacity = opacity + step;  
-                    if(nextOpacity <= 1) { 
-                        this.setState({ 
-                            opacity: nextOpacity, 
-                        });
-                    } else {
-                        clearInterval(this.id);
-                    }
+                    this.setState(({opacity}) => { 
+                        const nextOpacity = opacity + step; 
+                        if(nextOpacity < 1) {
+                            return {opacity: nextOpacity};
+                        } else {
+                            clearInterval(this.id);
+                            return {opacity: 1 };
+                        }
+                    });
                 }, 1000 / frames);
             }
             
