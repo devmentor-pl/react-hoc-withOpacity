@@ -3,12 +3,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // importuję odpowiedni plugin
 module.exports = {
-    entry: './src/app.js',
+    entry: './src/index.js',
     // definiuje plik wejściowy
     output: {
         path: path.resolve(__dirname, 'build'),
         // definiuje ścieżką wyjściową
-        filename: 'app.min.js',
+        filename: 'index.min.js',
         // definiuję nazwę pliku wyjściowego
     },
     module: {
